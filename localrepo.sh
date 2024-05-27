@@ -1,9 +1,9 @@
 #!/bin/bash
+ISOFILE="isofile.iso"
+cp /etc/fstab /etc/fstab.bak
+cp ./$ISOFILE /$ISOFILE
 
-cp /etc/fstab /fstab.bak
-cp ./rhel8.6.iso /rhel8.6.iso
-
-echo '/rhel8.6.iso /repo iso9660 ro,loop 0 0' >> /etc/fstab
+echo "/$ISOFILE /repo iso9660 ro,loop 0 0" >> /etc/fstab
 echo [baseos] >>/etc/yum.repos.d/local.repo
 echo name=baseos >>/etc/yum.repos.d/local.repo
 echo baseurl=file:///repo/BaseOS >>/etc/yum.repos.d/local.repo
